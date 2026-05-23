@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Empathic Detective: Applying Miller's Law in GP Practices</title>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        judge: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                        },
+                        detective: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .perspective {
+            perspective: 1000px;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+        .preserve-3d {
+            transform-style: preserve-3d;
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Top Status / Navigation for Elearning Emded -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-medical-600 text-white p-2 rounded-lg shadow-md">
+                    <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm md:text-base font-bold text-slate-900 tracking-tight">Active Listening in GP Clinics</h1>
+                    <p class="text-xs text-slate-500 font-medium">Topic: Miller's Law & Conflict Resolution</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Self-Paced Module</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-5xl w-full mx-auto px-4 py-6 space-y-8">
+        
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-br from-medical-900 via-slate-900 to-teal-950 text-white rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
+            <!-- Decorative Background Elements -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-medical-500/10 rounded-full blur-2xl -mr-16 -mt-16"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-2xl -ml-16 -mb-16"></div>
+
+            <div class="relative z-10 max-w-3xl">
+                <span class="bg-medical-500/20 text-medical-200 border border-medical-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    E-Learning Interaction
+                </span>
+                <h2 class="text-2xl md:text-4xl font-extrabold mt-4 tracking-tight leading-tight">
+                    The Empathic Detective
+                </h2>
+                <p class="text-slate-300 text-sm md:text-base mt-2 leading-relaxed">
+                    Conflict in medical practices can arise instantly, especially at the front desk. When patients or colleagues lash out, do we listen like a <strong class="text-rose-400">Judge</strong>, looking for inaccuracies to win the argument, or like a <strong class="text-emerald-400">Detective</strong>, seeking the underlying truth of their distress?
+                </p>
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <a href="#audio-section" class="inline-flex items-center bg-medical-600 hover:bg-medical-500 text-white text-xs md:text-sm font-bold px-4 py-2.5 rounded-lg shadow transition duration-200">
+                        <i data-lucide="play-circle" class="w-4 h-4 mr-2"></i>
+                        Listen & Explore
+                    </a>
+                    <a href="#interactive-sandbox" class="inline-flex items-center bg-slate-800/80 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-lg transition duration-200">
+                        <i data-lucide="check-square" class="w-4 h-4 mr-2"></i>
+                        Practice Scenarios
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio Player & Interactive Transcript Section -->
+        <section id="audio-section" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-slate-100 gap-4">
+                <div class="space-y-1">
+                    <h3 class="text-lg font-bold text-slate-900 flex items-center">
+                        <i data-lucide="volume-2" class="w-5 h-5 text-medical-600 mr-2"></i>
+                        Audio Resource & Read-Along
+                    </h3>
+                    <p class="text-xs text-slate-500">Listen to the module narration and interactively click on any sentence to jump to that moment.</p>
+                </div>
+                <!-- Custom Audio Speed Control & Helper -->
+                <div class="flex items-center gap-3">
+                    <label for="playback-speed" class="text-xs font-semibold text-slate-600">Speed:</label>
+                    <select id="playback-speed" class="text-xs bg-slate-50 border border-slate-200 rounded-md p-1.5 text-slate-700 font-bold focus:outline-none focus:ring-2 focus:ring-medical-500">
+                        <option value="0.75">0.75x</option>
+                        <option value="1.0" selected>1.0x (Normal)</option>
+                        <option value="1.25">1.25x</option>
+                        <option value="1.5">1.5x</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Dynamic Audio Connection Status and Upload Panel -->
+            <div class="flex flex-wrap items-center justify-between gap-3 bg-teal-50/70 border border-teal-100 p-3.5 rounded-xl">
+                <div class="flex items-center space-x-2">
+                    <span id="player-status-dot" class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+                    <span id="player-status-text" class="text-xs font-bold text-teal-800">Connecting to hosted audio...</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <label for="audio-upload" class="inline-flex items-center bg-white hover:bg-teal-50 text-teal-700 border border-teal-200 text-xs font-bold px-3 py-2 rounded-lg shadow-sm cursor-pointer transition">
+                        <i data-lucide="upload-cloud" class="w-4 h-4 mr-1.5 text-teal-600"></i>
+                        Select Local File instead
+                    </label>
+                    <input type="file" id="audio-upload" accept="audio/*" class="hidden">
+                </div>
+            </div>
+
+            <!-- Custom Elegant Player Deck -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col md:flex-row items-center gap-4">
+                <!-- Relative path source configured to point to Final Millers Law.wav -->
+                <audio id="main-audio" src="Final Millers Law.wav" preload="auto"></audio>
+                
+                <!-- Large Play/Pause Toggle -->
+                <button id="play-pause-btn" class="w-12 h-12 rounded-full bg-medical-600 hover:bg-medical-500 text-white flex items-center justify-center shadow transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-medical-500">
+                    <i id="play-icon" data-lucide="play" class="w-5 h-5"></i>
+                    <i id="pause-icon" data-lucide="pause" class="w-5 h-5 hidden"></i>
+                </button>
+
+                <!-- Custom Scrubber / Timeline bar -->
+                <div class="flex-grow w-full space-y-1">
+                    <div class="flex items-center justify-between text-xs text-slate-500 font-semibold">
+                        <span id="current-time">0:00</span>
+                        <span id="duration-time">--:--</span>
+                    </div>
+                    <div class="relative w-full h-2 bg-slate-200 rounded-full overflow-hidden cursor-pointer group" id="progress-bar-container">
+                        <div id="progress-bar" class="absolute left-0 top-0 h-full w-0 bg-medical-600 transition-all duration-100 group-hover:bg-medical-500"></div>
+                    </div>
+                </div>
+
+                <!-- Custom Volume Control -->
+                <div class="flex items-center gap-2 w-full md:w-auto border-t md:border-t-0 md:border-l border-slate-200 pt-3 md:pt-0 md:pl-4">
+                    <button id="mute-btn" class="text-slate-500 hover:text-slate-800">
+                        <i data-lucide="volume-x" id="volume-muted-icon" class="w-4 h-4 hidden"></i>
+                        <i data-lucide="volume-2" id="volume-loud-icon" class="w-4 h-4"></i>
+                    </button>
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.8" class="w-20 accent-medical-600 h-1.5 rounded-lg bg-slate-200 cursor-pointer">
+                </div>
+            </div>
+
+            <!-- Clickable Interactive Transcript with Synced Timestamps matching Final Millers Law.wav -->
+            <div class="bg-slate-50 rounded-xl p-4 max-h-[350px] overflow-y-auto border border-slate-200 custom-scrollbar text-sm md:text-base leading-relaxed text-slate-700">
+                <div class="text-xs uppercase tracking-wider text-slate-400 font-bold mb-3 border-b border-slate-200/50 pb-1.5 flex items-center justify-between">
+                    <span>Interactive Read-Along Transcript</span>
+                    <span class="text-[10px] text-medical-600 italic font-normal">Click any block to skip audio to that point</span>
+                </div>
+                
+                <div class="space-y-4" id="transcript-container">
+                    <p class="transcript-block hover:bg-slate-100 p-2.5 rounded border border-transparent hover:border-slate-200 transition cursor-pointer" data-start="0">
+                        <span class="block text-xs font-bold text-slate-400 mb-1">NARRATOR [0:00]</span>
+                        At times we all do this. We listen, but do we really listen to understand? Or do we listen to find the mistake, to win the argument, to bring a guilty verdict? And honestly, it's totally understandable. When you're barraged with accusations and frustrations from 8 in the morning till half past 6 at night, it's natural to start listening like a judge... searching for the inaccuracy, building your case, building your defense. We've all done it. Just sit with that for a moment.
+                    </p>
+                    <p class="transcript-block hover:bg-slate-100 p-2.5 rounded border border-transparent hover:border-slate-200 transition cursor-pointer" data-start="34">
+                        <span class="block text-xs font-bold text-slate-400 mb-1">NARRATOR [0:34]</span>
+                        What you're about to learn is how to move from being the judge to being the detective. How to find what's really going on with the patient when a situation turns conflictual. In 1980, psychologist George Miller proposed something radical: a different way of thinking. He said, before you disagree with someone, assume what they are saying is true. Then ask yourself: <em>what could it be true of?</em>
+                    </p>
+                    <p class="transcript-block hover:bg-slate-100 p-2.5 rounded border border-transparent hover:border-slate-200 transition cursor-pointer" data-start="75">
+                        <span class="block text-xs font-bold text-slate-400 mb-1">NARRATOR [1:15]</span>
+                        This doesn't mean you have to agree with them, you just have to find the world in which their words make sense. Now, if that sounds soft to you, it isn't. This isn't about pretending people are right. It's about understanding why they believe what they believe, because until you know that, you cannot resolve anything. You're just two people shouting past each other. And if you're thinking, "what, so I just agree with everyone?", the answer is no. You don't have to agree with a single word, but if you skip straight to correcting someone, you will never find out what's actually driving their conversation. And that is the brilliance of Miller's Law: it's a tool, not a surrender. Let me show you what this looks like in practice.
+                    </p>
+                    
+                    <!-- Spoken Insert: Patient -->
+                    <div class="transcript-block hover:bg-slate-100 p-3 rounded-xl border border-rose-200 bg-rose-50/40 transition cursor-pointer" data-start="135">
+                        <span class="block text-xs font-bold text-rose-600 mb-1">PATIENT [2:15]</span>
+                        <p class="text-rose-950 font-medium italic">"I've been waiting here over an hour, and nobody cares about my health."</p>
+                    </div>
+                    
+                    <p class="transcript-block hover:bg-slate-100 p-2.5 rounded border border-transparent hover:border-slate-200 transition cursor-pointer" data-start="141">
+                        <span class="block text-xs font-bold text-slate-400 mb-1">NARRATOR [2:21]</span>
+                        You see the judge hears a lie: "12 minutes, not an hour as stated. Case closed!" And the judge responds with:
+                    </p>
+                    
+                    <!-- Spoken Insert: Judge Response -->
+                    <div class="transcript-block hover:bg-slate-100 p-3 rounded-xl border border-rose-200 bg-rose-50/40 transition cursor-pointer" data-start="153">
+                        <span class="block text-xs font-bold text-rose-700 mb-1">RECEPTIONIST (JUDGE) [2:33]</span>
+                        <p class="text-rose-900 font-medium italic">"Sir, it's only been 12 minutes."</p>
+                    </div>
+                    
+                    <p class="transcript-block hover:bg-slate-100 p-2.5 rounded border border-transparent hover:border-slate-200 transition cursor-pointer" data-start="157">
+                        <span class="block text-xs font-bold text-slate-400 mb-1">NARRATOR [2:37]</span>
+                        The detective, however, hears distress. If it feels like an hour to the patient, then they feel forgotten, dismissed, like they don't matter here. And that is the missing piece. The detective responds with:
+                    </p>
+                    
+                    <!-- Spoken Insert: Detective Response -->
+                    <div class="transcript-block hover:bg-slate-100 p-3.5 rounded-xl border border-emerald-200 bg-emerald-50/40 transition cursor-pointer" data-start="169">
+                        <span class="block text-xs font-bold text-emerald-700 mb-1">RECEPTIONIST (DETECTIVE) [2:49]</span>
+                        <p class="text-emerald-950 font-semibold italic">"You are a priority to us, and I know that when you have to wait, it does not always feel that way. Let me check how long the doctor is going to be so you know exactly how long you are going to be waiting for."</p>
+                    </div>
+                    
+                    <p class="transcript-block hover:bg-slate-100 p-2.5 rounded border border-transparent hover:border-slate-200 transition cursor-pointer" data-start="193">
+                        <span class="block text-xs font-bold text-slate-400 mb-1">NARRATOR [3:13]</span>
+                        When you stop defending your version of events and start looking for the patient's, the argument dies. You stop fighting each other and start fighting the problem together. So next time something sounds wrong or incorrect, don't correct it. Ask yourself: <em>What would have to be true for this to make sense?</em>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Two Mindsets Side-by-Side Toggle Card -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- The Judge -->
+            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between">
+                        <div class="bg-rose-500 text-white p-2.5 rounded-xl shadow-md">
+                            <i data-lucide="gavel" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-rose-700 bg-rose-100 px-3 py-1 rounded-full uppercase tracking-wider">The Judge Mindset</span>
+                    </div>
+                    <h4 class="text-xl font-extrabold text-rose-900 mt-4">Listening to Defend & Correct</h4>
+                    <ul class="mt-4 space-y-3 text-sm text-rose-800 leading-relaxed">
+                        <li class="flex items-start">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                            <span>Focuses purely on factual inaccuracies, looking for structural errors in the patient's argument.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                            <span>Preoccupied with building a defense, finding "proof" to render a guilty verdict.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                            <span>Triggers defensiveness, escalating conflict immediately and alienating patients.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-6 border-t border-rose-200/60 pt-4 text-xs text-rose-700 font-semibold italic">
+                    "Actually, our logs show you've only been waiting 12 minutes, not an hour."
+                </div>
+            </div>
+
+            <!-- The Detective -->
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between">
+                        <div class="bg-emerald-600 text-white p-2.5 rounded-xl shadow-md">
+                            <i data-lucide="search" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full uppercase tracking-wider">The Detective Mindset</span>
+                    </div>
+                    <h4 class="text-xl font-extrabold text-emerald-900 mt-4">Listening to Understand Distress</h4>
+                    <ul class="mt-4 space-y-3 text-sm text-emerald-800 leading-relaxed">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                            <span>Applies Miller's Law: assumes statements represent an internal reality, asking *what is this true of?*</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                            <span>Focuses on the emotional engine driving the behavior (fear, feeling forgotten, distress).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-600 mr-2 mt-0.5 flex-shrink-0"></i>
+                            <span>De-escalates instantly, turning the situation into collaborative problem-solving.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-6 border-t border-emerald-200/60 pt-4 text-xs text-emerald-700 font-semibold italic">
+                    "It must feel like you've been waiting an eternity. I'm sorry. Let's find out what's happening."
+                </div>
+            </div>
+        </section>
+
+        <!-- George Miller's Radical Concept Feature Banner -->
+        <section class="bg-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-md border border-slate-800 relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-5 text-white">
+                <i data-lucide="quote" class="w-48 h-48"></i>
+            </div>
+            <div class="max-w-3xl space-y-4">
+                <div class="flex items-center space-x-2 text-medical-400 text-xs font-bold uppercase tracking-widest">
+                    <span>Radical Psychology Principle</span>
+                </div>
+                <blockquote class="text-lg md:text-2xl font-serif italic text-slate-100 leading-relaxed">
+                    "To understand what another person is saying, you must assume that it is true, and try to find out what it could be true of."
+                </blockquote>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                    <div>
+                        <cite class="block text-sm font-bold text-white not-italic">George A. Miller (1980)</cite>
+                        <span class="block text-xs text-slate-400">Co-founder of Cognitive Psychology, Harvard University</span>
+                    </div>
+                    <div class="bg-slate-800 text-xs text-slate-300 font-semibold px-3 py-1 rounded-full border border-slate-700">
+                        Miller's Law
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Split-Screen Conflict Simulation -->
+        <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-6">
+            <div class="space-y-1">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center">
+                    <i data-lucide="git-branch" class="w-5 h-5 text-medical-600 mr-2"></i>
+                    The Patient's Clock: Split-Path Simulation
+                </h3>
+                <p class="text-xs text-slate-500">Compare what happens in real-time when a patient expresses conflict. Toggle between the paths below.</p>
+            </div>
+
+            <!-- Path Controller Toggles -->
+            <div class="grid grid-cols-2 gap-2 bg-slate-100 p-1 rounded-xl">
+                <button onclick="togglePath('judge')" id="btn-path-judge" class="path-btn py-2.5 px-4 text-xs md:text-sm font-bold rounded-lg transition-all duration-200 text-rose-700 bg-white shadow-sm flex items-center justify-center gap-2">
+                    <i data-lucide="gavel" class="w-4 h-4"></i>
+                    The Judge's Path
+                </button>
+                <button onclick="togglePath('detective')" id="btn-path-detective" class="path-btn py-2.5 px-4 text-xs md:text-sm font-bold rounded-lg transition-all duration-200 text-slate-600 hover:text-slate-800 flex items-center justify-center gap-2">
+                    <i data-lucide="search" class="w-4 h-4"></i>
+                    The Detective's Path
+                </button>
+            </div>
+
+            <!-- Simulation Panel -->
+            <div id="sim-judge" class="sim-panel p-4 md:p-6 bg-rose-50/50 border border-rose-100 rounded-xl space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+                        <h4 class="text-sm font-bold text-rose-900">Step-by-Step Conflict Escalation</h4>
+                    </div>
+                    <span class="text-xs text-rose-600 font-bold bg-rose-100 px-2 py-0.5 rounded">Defense Reaction</span>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- Dialogue Row 1 -->
+                    <div class="flex gap-3">
+                        <div class="w-8 h-8 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-xs flex-shrink-0">P</div>
+                        <div class="bg-white p-3 rounded-xl shadow-sm border border-rose-100 text-sm flex-grow">
+                            <span class="block text-xs font-bold text-rose-800 mb-0.5">Patient</span>
+                            "I've been waiting here over an hour! This is absolute rubbish!"
+                        </div>
+                    </div>
+                    <!-- Dialogue Row 2 -->
+                    <div class="flex gap-3 justify-end">
+                        <div class="bg-rose-600 text-white p-3 rounded-xl shadow-sm text-sm max-w-[85%] text-right">
+                            <span class="block text-xs font-bold text-rose-200 mb-0.5">GP Receptionist (Judge Mode)</span>
+                            "Actually, you logged in exactly 12 minutes ago. We have several critically ill patients ahead of you."
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-rose-700 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">R</div>
+                    </div>
+                    <!-- Dialogue Row 3 -->
+                    <div class="flex gap-3">
+                        <div class="w-8 h-8 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-xs flex-shrink-0">P</div>
+                        <div class="bg-white p-3 rounded-xl shadow-sm border border-rose-200 text-sm flex-grow">
+                            <span class="block text-xs font-bold text-rose-800 mb-0.5">Patient (Insulted / Escalated)</span>
+                            "Are you calling me a liar? I know when I got here! You people are completely incompetent and lazy!"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-rose-100/50 p-3 rounded-lg border border-rose-200 text-xs text-rose-800 flex gap-2">
+                    <i data-lucide="info" class="w-4 h-4 flex-shrink-0"></i>
+                    <span><strong>Outcome:</strong> Trust is shattered. The patient feels invalidated. The receptionist is defensive and stressed. The timeline is stuck on defense of facts instead of resolution.</span>
+                </div>
+            </div>
+
+            <div id="sim-detective" class="sim-panel hidden p-4 md:p-6 bg-emerald-50/50 border border-emerald-100 rounded-xl space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                        <h4 class="text-sm font-bold text-emerald-900">Step-by-Step Conflict Resolution</h4>
+                    </div>
+                    <span class="text-xs text-emerald-600 font-bold bg-emerald-100 px-2 py-0.5 rounded">Empathy Search</span>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- Dialogue Row 1 -->
+                    <div class="flex gap-3">
+                        <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs flex-shrink-0">P</div>
+                        <div class="bg-white p-3 rounded-xl shadow-sm border border-emerald-100 text-sm flex-grow">
+                            <span class="block text-xs font-bold text-emerald-800 mb-0.5">Patient</span>
+                            "I've been waiting here over an hour! This is absolute rubbish!"
+                        </div>
+                    </div>
+                    <!-- Dialogue Row 2 -->
+                    <div class="flex gap-3 justify-end">
+                        <div class="bg-emerald-600 text-white p-3 rounded-xl shadow-sm text-sm max-w-[85%] text-right">
+                            <span class="block text-xs font-bold text-emerald-200 mb-0.5">GP Receptionist (Detective Mode)</span>
+                            "It must feel like you've been waiting an eternity. I am so sorry. Let me find out exactly what's going on behind the scenes for you."
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-emerald-700 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">R</div>
+                    </div>
+                    <!-- Dialogue Row 3 -->
+                    <div class="flex gap-3">
+                        <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs flex-shrink-0">P</div>
+                        <div class="bg-white p-3 rounded-xl shadow-sm border border-emerald-200 text-sm flex-grow">
+                            <span class="block text-xs font-bold text-emerald-800 mb-0.5">Patient (De-escalated / Softened)</span>
+                            "Thank you. I have to catch a bus back to see my sick partner, and I was getting so panicked that I was going to miss it."
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-emerald-100/50 p-3 rounded-lg border border-emerald-200 text-xs text-emerald-800 flex gap-2">
+                    <i data-lucide="info" class="w-4 h-4 flex-shrink-0"></i>
+                    <span><strong>Outcome:</strong> The emotional "fire" is extinguished. The receptionist discovered the *actual* cause of the distress (the partner & the bus) rather than fighting over wait minutes. You can now work together to solve it.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Sandbox / Clinical Scenarios Practice Hub -->
+        <section id="interactive-sandbox" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-6">
+            <div class="space-y-1">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center">
+                    <i data-lucide="compass" class="w-5 h-5 text-medical-600 mr-2"></i>
+                    Detective's Practice Hub: Convert the Response
+                </h3>
+                <p class="text-xs text-slate-500">Test your ability to apply Miller's Law. Choose the Detective answer that uncovers the hidden truth of the distress.</p>
+            </div>
+
+            <!-- Interactive Scenario Card -->
+            <div class="bg-slate-50 rounded-xl border border-slate-200 p-5 space-y-4">
+                <div class="flex items-center justify-between text-xs font-bold text-slate-400 uppercase tracking-widest pb-2 border-b border-slate-200">
+                    <span id="scenario-counter">Scenario 1 of 3</span>
+                    <span class="text-medical-600">Active Test</span>
+                </div>
+
+                <!-- Scenario Dynamic Title & Content -->
+                <div class="space-y-2">
+                    <h4 id="scenario-title" class="text-base font-extrabold text-slate-900">The Overbearing Family Member</h4>
+                    <p id="scenario-desc" class="text-sm text-slate-600 italic bg-white p-3 rounded-lg border border-slate-200">
+                        "Your clinic never takes elderly patients seriously! My father called three times yesterday for his results and was completely ignored!"
+                    </p>
+                </div>
+
+                <!-- Interactive Choices Panel -->
+                <div class="space-y-3" id="choices-container">
+                    <!-- Javascript will render options here -->
+                </div>
+
+                <!-- Dynamic Outcome Alert Box -->
+                <div id="outcome-alert" class="hidden p-4 rounded-xl text-sm flex gap-3 transition-all duration-300">
+                    <div id="outcome-icon-container"></div>
+                    <div>
+                        <span class="block font-bold" id="outcome-header">Outcome Header</span>
+                        <p id="outcome-body" class="mt-1">Outcome feedback text here.</p>
+                    </div>
+                </div>
+
+                <!-- Controller Footer -->
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+                    <button id="prev-scenario" onclick="changeScenario(-1)" class="text-xs font-bold text-slate-500 hover:text-slate-800 disabled:opacity-30 disabled:pointer-events-none flex items-center">
+                        <i data-lucide="arrow-left" class="w-4 h-4 mr-1"></i> Prev
+                    </button>
+                    <button id="next-scenario" onclick="changeScenario(1)" class="bg-medical-600 hover:bg-medical-500 text-white text-xs font-bold px-4 py-2 rounded-lg shadow disabled:opacity-30 flex items-center">
+                        Next Scenario <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Personal Commitment Pledge -->
+        <section class="bg-gradient-to-br from-slate-50 to-teal-50 border border-teal-100 rounded-2xl p-6 md:p-8 space-y-6 shadow-sm">
+            <div class="space-y-2 max-w-2xl">
+                <h3 class="text-xl font-extrabold text-slate-900 flex items-center">
+                    <i data-lucide="heart" class="w-6 h-6 text-medical-600 mr-2"></i>
+                    My Personal Active Listening Pledge
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Commitment is the core of applying Miller's Law. Customize your pledge card below, generate a beautiful visual output, and copy or screenshot it to keep at your GP workstation desk!
+                </p>
+            </div>
+
+            <!-- Interactive Builder Form -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                <div class="space-y-4">
+                    <div>
+                        <label for="pledge-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5">My Name</label>
+                        <input type="text" id="pledge-name" placeholder="e.g. Dr. Sarah Carter or Receptionist Sam" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-medical-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label for="pledge-role" class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5">My GP Clinic / Role</label>
+                        <input type="text" id="pledge-role" placeholder="e.g. Lead Receptionist at Oakwood Practice" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-medical-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label for="pledge-question" class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5">My Go-To "Detective" Question</label>
+                        <select id="pledge-question" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-medical-500 focus:border-transparent font-medium">
+                            <option value="What would have to be true for this patient's reaction to make sense right now?">"What would have to be true for this patient's reaction to make sense?"</option>
+                            <option value="What hidden distress or anxiety is fueling this reaction?">"What hidden distress or anxiety is fueling this reaction?"</option>
+                            <option value="How can I find the world in which this patient's words make perfect sense?">"How can I find the world in which this patient's words make sense?"</option>
+                            <option value="Am I listening to win the argument, or am I listening to find their fear?">"Am I listening to win the argument, or to find their fear?"</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Rendered Pledge Card -->
+                <div class="bg-white border-2 border-dashed border-teal-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between relative overflow-hidden h-full min-h-[250px]" id="pledge-card">
+                    <!-- Accent decorative badge -->
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-teal-500/10 rounded-full"></div>
+                    
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                            <span class="text-xs font-bold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full uppercase tracking-wider">Miller's Law Pledge</span>
+                            <i data-lucide="award" class="w-5 h-5 text-teal-600"></i>
+                        </div>
+                        
+                        <p class="text-sm italic text-slate-700 font-serif leading-relaxed">
+                            "When conflict or distress arises in my practice, I promise to step away from the bench of the Judge. I will investigate as a Detective, asking myself:"
+                        </p>
+                        
+                        <p class="text-base font-extrabold text-teal-900 italic border-l-4 border-teal-600 pl-3 py-1 bg-teal-50/50" id="rendered-question">
+                            "What would have to be true for this patient's reaction to make sense right now?"
+                        </p>
+                    </div>
+
+                    <div class="flex items-end justify-between border-t border-slate-100 pt-4 mt-6">
+                        <div>
+                            <span class="block text-xs text-slate-400 font-bold uppercase">Committed Practitioner</span>
+                            <span class="block text-sm font-extrabold text-slate-800" id="rendered-name">Your Name Here</span>
+                            <span class="block text-[11px] text-slate-500 font-medium" id="rendered-role">Your Clinic Role</span>
+                        </div>
+                        <button onclick="copyPledgeToClipboard()" class="text-xs bg-teal-600 hover:bg-teal-500 text-white font-bold px-3 py-2 rounded-lg flex items-center shadow transition duration-200">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 mr-1"></i> Copy Text
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer of Embed -->
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-6 mt-12">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+            <div class="flex items-center space-x-2">
+                <div class="bg-medical-600 text-white p-1.5 rounded">
+                    <i data-lucide="heart-pulse" class="w-4 h-4"></i>
+                </div>
+                <span class="font-bold text-white">GP Clinical Empathy Toolset</span>
+            </div>
+            <div>
+                <span>Designed for Mindsmith AI | Hosted via GitHub</span>
+            </div>
+            <div class="flex items-center space-x-1 text-slate-500">
+                <span>Inspired by George A. Miller, 1980</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Modal for Feedback Alerts (replacing standard alerts) -->
+    <div id="custom-modal" class="fixed inset-0 bg-slate-900/60 z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-300" id="modal-container">
+            <div class="flex items-center gap-3 border-b border-slate-100 pb-3">
+                <div class="p-2 bg-emerald-100 text-emerald-700 rounded-xl" id="modal-icon-bg">
+                    <i data-lucide="check" class="w-6 h-6" id="modal-icon"></i>
+                </div>
+                <h4 class="text-base font-extrabold text-slate-900" id="modal-title">Success</h4>
+            </div>
+            <p class="text-sm text-slate-600 mt-3 leading-relaxed" id="modal-message">
+                Message details.
+            </p>
+            <div class="flex justify-end pt-4 mt-4 border-t border-slate-100">
+                <button onclick="closeModal()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2 rounded-lg shadow">
+                    Got it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripting for entire interactivity -->
+    <script>
+        // Initiate Lucide Icons
+        lucide.createIcons();
+
+        // Custom Modal Controller
+        function showModal(title, msg, type = 'success') {
+            const modal = document.getElementById('custom-modal');
+            const container = document.getElementById('modal-container');
+            const mTitle = document.getElementById('modal-title');
+            const mMsg = document.getElementById('modal-message');
+            const mIconBg = document.getElementById('modal-icon-bg');
+            const mIcon = document.getElementById('modal-icon');
+
+            mTitle.innerText = title;
+            mMsg.innerText = msg;
+
+            if (type === 'success') {
+                mIconBg.className = "p-2 bg-emerald-100 text-emerald-700 rounded-xl";
+                mIcon.setAttribute('data-lucide', 'check');
+            } else {
+                mIconBg.className = "p-2 bg-rose-100 text-rose-700 rounded-xl";
+                mIcon.setAttribute('data-lucide', 'alert-triangle');
+            }
+            lucide.createIcons();
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                container.classList.remove('scale-95');
+                container.classList.add('scale-100');
+            }, 50);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('custom-modal');
+            const container = document.getElementById('modal-container');
+            modal.classList.add('opacity-0');
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // State & Audio Elements
+        const audio = document.getElementById('main-audio');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+        const progressBarContainer = document.getElementById('progress-bar-container');
+        const progressBar = document.getElementById('progress-bar');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationTimeEl = document.getElementById('duration-time');
+        const muteBtn = document.getElementById('mute-btn');
+        const volMutedIcon = document.getElementById('volume-muted-icon');
+        const volLoudIcon = document.getElementById('volume-loud-icon');
+        const volumeSlider = document.getElementById('volume-slider');
+        const playbackSpeed = document.getElementById('playback-speed');
+        const transcriptBlocks = document.querySelectorAll('.transcript-block');
+        const audioUpload = document.getElementById('audio-upload');
+        const playerStatusText = document.getElementById('player-status-text');
+        const playerStatusDot = document.getElementById('player-status-dot');
+
+        // Playback Mode Configuration
+        let isSimulatedMode = false;
+        const simulatedDuration = 230; // 3m 50s total transcript duration
+        let simulatedCurrentTime = 0;
+        let simulatedInterval = null;
+
+        // Automatically configure player with standard timeout guard
+        const loadTimeout = setTimeout(() => {
+            if (audio.readyState < 1 && !isSimulatedMode) {
+                console.log("Audio loading timed out or unresolved. Launching simulator engine.");
+                enableSimulationMode();
+            }
+        }, 2000);
+
+        // Detect and handle load errors safely
+        audio.addEventListener('error', () => {
+            clearTimeout(loadTimeout);
+            if (!isSimulatedMode) {
+                console.warn("Unresolved or blocked audio source file. Enabling fallbacks.");
+                enableSimulationMode();
+            }
+        });
+
+        // Safe dynamic UI Updates
+        function updateProgressUI(currentTime, duration) {
+            const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+            progressBar.style.width = `${progress}%`;
+            currentTimeEl.innerText = formatTime(currentTime);
+
+            // Synchronize active narration context markers
+            transcriptBlocks.forEach((block, index) => {
+                const startTime = parseFloat(block.getAttribute('data-start'));
+                const nextBlock = transcriptBlocks[index + 1];
+                const endTime = nextBlock ? parseFloat(nextBlock.getAttribute('data-start')) : Infinity;
+
+                if (currentTime >= startTime && currentTime < endTime) {
+                    block.classList.add('bg-teal-50', 'border-l-4', 'border-teal-500', 'pl-3', 'text-slate-900', 'font-semibold');
+                    block.classList.remove('text-slate-700');
+                } else {
+                    block.classList.remove('bg-teal-50', 'border-l-4', 'border-teal-500', 'pl-3', 'text-slate-900', 'font-semibold');
+                    block.classList.add('text-slate-700');
+                }
+            });
+        }
+
+        // Fallback Activation Models
+        function enableSimulationMode() {
+            isSimulatedMode = true;
+            playerStatusText.innerText = "Simulated Playback Active (GitHub source not resolved)";
+            playerStatusDot.className = "w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse";
+            durationTimeEl.innerText = formatTime(simulatedDuration);
+            updateProgressUI(simulatedCurrentTime, simulatedDuration);
+        }
+
+        function disableSimulationMode() {
+            if (isSimulatedMode) {
+                isSimulatedMode = false;
+                if (simulatedInterval) {
+                    clearInterval(simulatedInterval);
+                    simulatedInterval = null;
+                }
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            }
+        }
+
+        // Custom User File Loader Binder
+        audioUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                clearTimeout(loadTimeout);
+                disableSimulationMode();
+                
+                const objectURL = URL.createObjectURL(file);
+                audio.src = objectURL;
+                audio.load();
+
+                playerStatusText.innerText = `Using local source: ${file.name}`;
+                playerStatusDot.className = "w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse";
+                
+                // Alert confirmation
+                showModal("Audio Loaded", `"${file.name}" has been registered. You can now control synchronized highlights using the player interface!`, "success");
+            }
+        });
+
+        // Time format converter (Seconds to MM:SS)
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // Play/Pause Universal Dispatcher
+        playPauseBtn.addEventListener('click', toggleAudio);
+
+        function toggleAudio() {
+            if (isSimulatedMode) {
+                if (simulatedInterval) {
+                    // Pause simulation state
+                    clearInterval(simulatedInterval);
+                    simulatedInterval = null;
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                } else {
+                    // Play simulation state
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+
+                    const speedMultiplier = parseFloat(playbackSpeed.value);
+                    const updateRateMs = 100 / speedMultiplier;
+
+                    simulatedInterval = setInterval(() => {
+                        simulatedCurrentTime += 0.1;
+                        if (simulatedCurrentTime >= simulatedDuration) {
+                            simulatedCurrentTime = 0;
+                            clearInterval(simulatedInterval);
+                            simulatedInterval = null;
+                            playIcon.classList.remove('hidden');
+                            pauseIcon.classList.add('hidden');
+                        }
+                        updateProgressUI(simulatedCurrentTime, simulatedDuration);
+                    }, 100);
+                }
+            } else {
+                // Native Audio Control
+                if (audio.paused) {
+                    audio.play().then(() => {
+                        playIcon.classList.add('hidden');
+                        pauseIcon.classList.remove('hidden');
+                    }).catch(err => {
+                        console.warn("Native audio play blocked. Reverting to simulator engine.", err);
+                        enableSimulationMode();
+                        toggleAudio(); // re-trigger on simulated state
+                    });
+                } else {
+                    audio.pause();
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                }
+            }
+        }
+
+        // Speed Adjustment Dispatcher
+        playbackSpeed.addEventListener('change', (e) => {
+            const val = parseFloat(e.target.value);
+            if (!isSimulatedMode) {
+                audio.playbackRate = val;
+            } else if (simulatedInterval) {
+                // Reset timer interval with new rate
+                clearInterval(simulatedInterval);
+                simulatedInterval = null;
+                toggleAudio();
+            }
+        });
+
+        // Handle successful native loaded metadata
+        audio.addEventListener('loadedmetadata', () => {
+            clearTimeout(loadTimeout);
+            if (!isSimulatedMode) {
+                durationTimeEl.innerText = formatTime(audio.duration);
+                playerStatusText.innerText = "Audio Connected from GitHub";
+                playerStatusDot.className = "w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse";
+            }
+        });
+
+        // Tick dispatcher for native playback
+        audio.addEventListener('timeupdate', () => {
+            if (!isSimulatedMode) {
+                updateProgressUI(audio.currentTime, audio.duration || simulatedDuration);
+            }
+        });
+
+        // Unified scrubber functionality
+        progressBarContainer.addEventListener('click', (e) => {
+            const rect = progressBarContainer.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+            const percentage = clickX / width;
+
+            if (isSimulatedMode) {
+                simulatedCurrentTime = percentage * simulatedDuration;
+                updateProgressUI(simulatedCurrentTime, simulatedDuration);
+            } else {
+                audio.currentTime = percentage * (audio.duration || simulatedDuration);
+            }
+        });
+
+        // Click-To-Skip/Jump action handler for transcript elements
+        transcriptBlocks.forEach(block => {
+            block.addEventListener('click', () => {
+                const startTime = parseFloat(block.getAttribute('data-start'));
+                if (isSimulatedMode) {
+                    simulatedCurrentTime = startTime;
+                    updateProgressUI(simulatedCurrentTime, simulatedDuration);
+                    if (!simulatedInterval) {
+                        toggleAudio();
+                    }
+                } else {
+                    audio.currentTime = startTime;
+                    if (audio.paused) {
+                        toggleAudio();
+                    }
+                }
+            });
+        });
+
+        // Volume Controller Mechanics
+        volumeSlider.addEventListener('input', (e) => {
+            audio.volume = e.target.value;
+            if (audio.volume === 0) {
+                volLoudIcon.classList.add('hidden');
+                volMutedIcon.classList.remove('hidden');
+            } else {
+                volLoudIcon.classList.remove('hidden');
+                volMutedIcon.classList.add('hidden');
+            }
+        });
+
+        muteBtn.addEventListener('click', () => {
+            if (audio.muted) {
+                audio.muted = false;
+                volLoudIcon.classList.remove('hidden');
+                volMutedIcon.classList.add('hidden');
+                volumeSlider.value = audio.volume;
+            } else {
+                audio.muted = true;
+                volLoudIcon.classList.add('hidden');
+                volMutedIcon.classList.remove('hidden');
+                volumeSlider.value = 0;
+            }
+        });
+
+        // Split-Screen Simulator Controllers
+        function togglePath(mode) {
+            const simJudge = document.getElementById('sim-judge');
+            const simDetective = document.getElementById('sim-detective');
+            const btnJudge = document.getElementById('btn-path-judge');
+            const btnDetective = document.getElementById('btn-path-detective');
+
+            if (mode === 'judge') {
+                simJudge.classList.remove('hidden');
+                simDetective.classList.add('hidden');
+                btnJudge.className = "path-btn py-2.5 px-4 text-xs md:text-sm font-bold rounded-lg transition-all duration-200 text-rose-700 bg-white shadow-sm flex items-center justify-center gap-2";
+                btnDetective.className = "path-btn py-2.5 px-4 text-xs md:text-sm font-bold rounded-lg transition-all duration-200 text-slate-600 hover:text-slate-800 flex items-center justify-center gap-2";
+            } else {
+                simJudge.classList.add('hidden');
+                simDetective.classList.remove('hidden');
+                btnJudge.className = "path-btn py-2.5 px-4 text-xs md:text-sm font-bold rounded-lg transition-all duration-200 text-slate-600 hover:text-slate-800 flex items-center justify-center gap-2";
+                btnDetective.className = "path-btn py-2.5 px-4 text-xs md:text-sm font-bold rounded-lg transition-all duration-200 text-emerald-700 bg-white shadow-sm flex items-center justify-center gap-2";
+            }
+        }
+
+        // Scenario Database & Interactive Sandbox Engine
+        const scenarios = [
+            {
+                title: "The Overbearing Family Member",
+                desc: `"Your clinic never takes elderly patients seriously! My father called three times yesterday for his results and was completely ignored!"`,
+                choices: [
+                    {
+                        text: `"Our system logs all incoming calls. He was only logged as calling once, and that was at 4:55 PM after the lab closed."`,
+                        correct: false,
+                        feedback: "That's the Judge response. You've corrected their log claim, which escalates the caller's feeling of defensive rejection."
+                    },
+                    {
+                        text: `"It must feel incredibly frightening and lonely to feel like his vital care is being completely ignored. Let's find those results immediately."`,
+                        correct: true,
+                        feedback: "Spot on! By using Miller's Law, you identified their underlying distress (concern and loneliness for their father) rather than fighting the 'three times call' log."
+                    },
+                    {
+                        text: `"Yesterday was our busiest clinic day of the quarter, so everyone had to wait. We take all elderly people seriously."`,
+                        correct: false,
+                        feedback: "You are making defensive clinic excuses instead of investigating the clinical concern."
+                    }
+                ]
+            },
+            {
+                title: "The Chronic Knee Pain Outburst",
+                desc: `"I demand to see a General Practitioner this second! My left knee has been hurting severely for over three months now!"`,
+                choices: [
+                    {
+                        text: `"If your knee has been hurting for three months, it's not a medical emergency today. You'll need to book a routine slot for next week."`,
+                        correct: false,
+                        feedback: "This is the Judge response. You diagnosed the logic error (hurting for 3 months means it can wait) instead of recognizing the tipping point."
+                    },
+                    {
+                        text: `"It sounds like you've been living with constant, exhausting pain for three months and something has changed today that's reached a crisis point for you."`,
+                        correct: true,
+                        feedback: "Perfect Detective work! You searched for *why* a three-month-old pain is triggering panic *now*, addressing their internal reality."
+                    },
+                    {
+                        text: `"We can't let you bypass the triaged queue just because you're shouting at the front desk."`,
+                        correct: false,
+                        feedback: "This directly attacks the patient's emotional presentation, creating immediate hostility."
+                    }
+                ]
+            },
+            {
+                title: "The Delayed Prescription Panic",
+                desc: `"This practice is utterly useless! I ordered my heart medication refills on Tuesday and you still haven't sent them to the chemist!"`,
+                choices: [
+                    {
+                        text: `"Our system shows Tuesday's batch of prescription requests are still pending clinical authorization by the duty GP."`,
+                        correct: false,
+                        feedback: "This is standard clinic-speak. It ignores the panic and throws the duty doctor under the bus."
+                    },
+                    {
+                        text: `"Actually, prescriptions take 48 clear working hours to process, which means Tuesday requests are only due tomorrow anyway."`,
+                        correct: false,
+                        feedback: "Classic Judge response. You corrected their deadline calculation while leaving them scared and unmedicated."
+                    },
+                    {
+                        text: `"I understand how terrifying it is to look at your medicine cabinet and see vital heart pills empty. Let me bypass the queue to get the GP to authorize this right now."`,
+                        correct: true,
+                        feedback: "Outstanding! You realized that when patients panic about missing core cardiovascular medicine, they aren't complaining about rules; they are terrified of running out. You addressed the fear."
+                    }
+                ]
+            }
+        ];
+
+        let currentScenarioIndex = 0;
+
+        function loadScenario() {
+            const sc = scenarios[currentScenarioIndex];
+            document.getElementById('scenario-counter').innerText = `Scenario ${currentScenarioIndex + 1} of ${scenarios.length}`;
+            document.getElementById('scenario-title').innerText = sc.title;
+            document.getElementById('scenario-desc').innerHTML = sc.desc;
+
+            const choicesContainer = document.getElementById('choices-container');
+            choicesContainer.innerHTML = '';
+
+            sc.choices.forEach((ch, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left bg-white hover:bg-slate-100 p-4 rounded-xl border border-slate-200 transition text-sm flex gap-3 relative overflow-hidden group";
+                btn.onclick = () => selectChoice(idx);
+                btn.innerHTML = `
+                    <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center text-xs font-bold flex-shrink-0 group-hover:bg-medical-100 group-hover:text-medical-700 transition">
+                        ${String.fromCharCode(65 + idx)}
+                    </span>
+                    <span class="text-slate-700 font-medium">${ch.text}</span>
+                `;
+                choicesContainer.appendChild(btn);
+            });
+
+            // Reset outcome alert
+            const alert = document.getElementById('outcome-alert');
+            alert.classList.add('hidden');
+
+            // Button configurations
+            document.getElementById('prev-scenario').disabled = currentScenarioIndex === 0;
+            document.getElementById('next-scenario').disabled = currentScenarioIndex === scenarios.length - 1;
+        }
+
+        function selectChoice(choiceIdx) {
+            const sc = scenarios[currentScenarioIndex];
+            const ch = sc.choices[choiceIdx];
+            const alert = document.getElementById('outcome-alert');
+            const header = document.getElementById('outcome-header');
+            const body = document.getElementById('outcome-body');
+            const iconContainer = document.getElementById('outcome-icon-container');
+
+            alert.classList.remove('hidden');
+            body.innerText = ch.feedback;
+
+            if (ch.correct) {
+                alert.className = "p-4 rounded-xl text-sm flex gap-3 bg-emerald-50 border border-emerald-200 text-emerald-800";
+                header.innerText = "Excellent Detective Detective Action!";
+                iconContainer.innerHTML = `<i data-lucide="smile" class="w-5 h-5 text-emerald-600 mt-0.5"></i>`;
+            } else {
+                alert.className = "p-4 rounded-xl text-sm flex gap-3 bg-rose-50 border border-rose-200 text-rose-800";
+                header.innerText = "Judge Reaction Triggered";
+                iconContainer.innerHTML = `<i data-lucide="frown" class="w-5 h-5 text-rose-600 mt-0.5"></i>`;
+            }
+            lucide.createIcons();
+        }
+
+        function changeScenario(direction) {
+            currentScenarioIndex += direction;
+            if (currentScenarioIndex < 0) currentScenarioIndex = 0;
+            if (currentScenarioIndex >= scenarios.length) currentScenarioIndex = scenarios.length - 1;
+            loadScenario();
+        }
+
+        // Commitment Pledge Card Live Binder
+        const inputName = document.getElementById('pledge-name');
+        const inputRole = document.getElementById('pledge-role');
+        const inputQuestion = document.getElementById('pledge-question');
+
+        const renderedName = document.getElementById('rendered-name');
+        const renderedRole = document.getElementById('rendered-role');
+        const renderedQuestion = document.getElementById('rendered-question');
+
+        function updatePledge() {
+            renderedName.innerText = inputName.value.trim() !== "" ? inputName.value.trim() : "Your Name Here";
+            renderedRole.innerText = inputRole.value.trim() !== "" ? inputRole.value.trim() : "Your Clinic Role";
+            renderedQuestion.innerText = `"${inputQuestion.value}"`;
+        }
+
+        inputName.addEventListener('input', updatePledge);
+        inputRole.addEventListener('input', updatePledge);
+        inputQuestion.addEventListener('change', updatePledge);
+
+        // Copy Pledge text details
+        function copyPledgeToClipboard() {
+            const name = renderedName.innerText;
+            const role = renderedRole.innerText;
+            const question = renderedQuestion.innerText;
+            
+            const textToCopy = `Miller's Law Pledge\n\n"When conflict or distress arises in my practice, I promise to step away from the bench of the Judge. I will investigate as a Detective, asking myself:"\n\n${question}\n\nCommitted Practitioner: ${name}\nGP Practice: ${role}`;
+            
+            // Clipboard standard support
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            showModal("Pledge Copied!", "Your personalized active listening pledge has been successfully copied to your clipboard. Paste it into your workstation sticky notes or digital planner!", "success");
+        }
+
+        // Load initial sandbox scenario and update template pledge card labels
+        window.onload = function() {
+            loadScenario();
+            updatePledge();
+        }
+    </script>
+</body>
+</html>
